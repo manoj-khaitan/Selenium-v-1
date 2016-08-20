@@ -2,8 +2,10 @@ package selenium;
 import utilities.excelreader;
 import java.lang.reflect.*;
 import java.util.ArrayList;
-
-public class callingclass {
+import pageobjects.Report;
+public class callingclass extends Report{
+	
+	//static Report thisreport = new Report();
 
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws Exception {
@@ -16,6 +18,7 @@ public class callingclass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		int itotaltestcases = excelreader.getrownumber("Test Cases")-1;
 		for(int itestcases=1;itestcases <=itotaltestcases;itestcases++){
 			String ineedtoexecute = excelreader.getCellData(itestcases, 2, "Test Cases");
@@ -41,6 +44,8 @@ public class callingclass {
 					}
 					
 				}
+				result(getreport());
+				//thisreport.result(thisreport.getreport());
 			}
 		}
 	
